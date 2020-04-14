@@ -24,6 +24,13 @@ export default {
    ** Global CSS
    */
   css: [],
+  styleResources: {
+    stylus: [
+      '~/common/css/mixins.styl',
+      '~/common/css/common.styl'
+    ],
+  },
+
   /*
    ** Plugins to load before mounting the App
    */
@@ -35,7 +42,9 @@ export default {
   /*
    ** Nuxt.js modules
    */
-  modules: [],
+  modules: [
+    '@nuxtjs/style-resources'
+  ],
   /*
    ** Build configuration
    */

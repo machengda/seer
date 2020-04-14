@@ -1,0 +1,40 @@
+@import '~./theme.styl'
+
+*
+  box-sizing: border-box
+
+a
+  text-decoration: none
+
+html,
+body
+  margin: 0
+  padding: 0
+  font-family: PingFang-SC-Regular,Helvetica Neue,Helvetica,Roboto,Segoe UI,Arial,sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+.pc
+  body
+    width 375px
+    margin auto
+
+img
+  max-width 100%
+
+.toasted-container
+  &.bottom-center
+    bottom 15% !important
+    left 50% !important
+    min-width 0 !important
+    transform translateX(-50%)  !important
+
+  .toasted.toasted-primary
+    white-space nowrap
+    font-size .14rem
+    line-height 1.4
+    padding .08rem .12rem
+    min-height auto
+
+a
+  text-decoration none
