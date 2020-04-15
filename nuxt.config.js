@@ -23,11 +23,21 @@ export default {
   /*
    ** Global CSS
    */
+<<<<<<< HEAD
   css: [],
   styleResources: {
     stylus: [
       '~/common/css/mixins.styl',
       '~/common/css/common.styl'
+=======
+  css: [
+    'swiper/css/swiper.css'
+  ],
+  styleResources: {
+    stylus: [
+      '@/common/css/mixins.styl',
+      '@/common/css/common.styl'
+>>>>>>> update: swiper
     ],
   },
 
@@ -35,7 +45,12 @@ export default {
    ** Plugins to load before mounting the App
    */
   plugins: [
+<<<<<<< HEAD
     '~/plugins/axios'
+=======
+    '@/plugins/axios',
+    { src: '@/plugins/nuxt-swiper-plugin', ssr: false },
+>>>>>>> update: swiper
   ],
   /*
    ** Nuxt.js dev-modules

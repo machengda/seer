@@ -24,6 +24,10 @@
       ]
     },
     "types": [
+<<<<<<< HEAD
+=======
+      "./types/vue.d.ts",
+>>>>>>> update: swiper
       "@types/node",
       "@nuxt/types",
       "@nuxt/vue-app",
@@ -34,5 +38,11 @@
     "node_modules",
     ".nuxt",
     "dist"
+<<<<<<< HEAD
   ]
+=======
+  ],
+  "outDir": "lib",
+  "declaration": true
+>>>>>>> update: swiper
 }

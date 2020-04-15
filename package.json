@@ -22,6 +22,10 @@
     "@nuxtjs/eslint-config-typescript": "^1.0.0",
     "@nuxtjs/eslint-module": "^1.0.0",
     "@nuxtjs/style-resources": "^1.0.0",
+<<<<<<< HEAD
+=======
+    "@types/node": "^13.11.1",
+>>>>>>> update: swiper
     "babel-eslint": "^10.0.1",
     "eslint": "^6.1.0",
     "eslint-config-prettier": "^6.10.0",
