@@ -19,10 +19,30 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
+import { Vue, Component, Prop } from 'vue-property-decorator'
+Component.registerHooks(['asyncData']);
 
-export default Vue.extend({
-})
+interface Resource {
+  name: '',
+  title: '',
+  link: '',
+  img: ''
+}
+
+@Component
+export default class Home extends Vue {
+  private list: Resource[] = []
+
+  async asyncData ({ app }) {
+    const list = await app.$api.get('resources?page.id=1')
+    return { list }
+  }
+
+  private mounted() {
+    console.log('list:', this.list)
+  }
+}
+
 </script>
 
 <style lang="stylus">
