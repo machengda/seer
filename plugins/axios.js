@@ -6,13 +6,10 @@ export default function ({ $axios, redirect }, inject) {
   api.setBaseURL('http://www.machengda.online:1337/')
 
   api.onResponse((response) => {
-<<<<<<< HEAD
-    console.log('response:', response)
-=======
->>>>>>> update: swiper
     return response.data
   })
 
   // Inject to context as $api
   inject('api', api)
+  inject('baseUrl', 'http://www.machengda.online:1337')
 }

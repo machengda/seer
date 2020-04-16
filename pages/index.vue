@@ -1,7 +1,5 @@
 <template lang="pug">
 .container
-<<<<<<< HEAD
-=======
 
   .top-board
     .swiper.navs(v-swiper="navSwiperOption")
@@ -11,19 +9,19 @@
           :key="index")
           .nav {{b.name}}
 
-    // swiper.swipers(ref="mySwiper" :options="mainOption")
-    //   swiper-slide(
-    //     v-for="b, index in banners"
-    //     :key="index")
-    //     a.item(
-    //       :href="b.link"
-    //       :data-size="b.size"
-    //       :data-type="b.type")
-    //       .title {{b.title}}
-    //       .desc {{b.desc}}
-    //       .image-container
-    //         img.product(:src="b.img")
->>>>>>> update: swiper
+    .swipers.swiper(v-swiper:mainSwiper="mainOption")
+      .swiper-wrapper
+        .swiper-slide(
+          v-for="b, index in banners"
+          :key="index")
+          a.item(
+            :href="b.link"
+            :data-size="b.size"
+            :data-type="b.type")
+            .title {{b.title}}
+            .desc {{b.desc}}
+            .image-container
+              img.product(:src="$baseUrl + b.img.url")
     
   .main
     a.img1(href="/seer/why.html")
@@ -56,16 +54,7 @@ interface Resource {
 @Component
 export default class Home extends Vue {
   private list: Resource[] = []
-<<<<<<< HEAD
-
-  async asyncData ({ app }) {
-    const list = await app.$api.get('resources?page.id=1')
-    return { list }
-  }
-
-  private mounted() {
-    console.log('list:', this.list)
-=======
+  private _this = this
   private navSwiperOption: any = {
     initialSlide: 0,
     direction: 'vertical',
@@ -75,23 +64,16 @@ export default class Home extends Vue {
     slideToClickedSlide: true,
     slidesPerView: 5,
     centeredSlides: true,
-    spaceBetween: 20,
-    on: {
-      init() {
-      }
-    }
+    spaceBetween: 20
   }
 
   private mainOption: any = {
     initialSlide: 0,
     direction: 'vertical',
-    mousewheel: false,
-    mousewheels: false,
-    spaceBetween: 0,
-    on: {
-      init() {
-      }
-    }
+    mousewheel: true,
+    mousewheels: true,
+    allowTouchMove: true,
+    spaceBetween: 0
   }
 
   async asyncData ({ app }: {
@@ -110,7 +92,9 @@ export default class Home extends Vue {
   private async mounted() {
     const list = await this.$api.get('resources?page.id=1')
     console.log('list:', list)
->>>>>>> update: swiper
+
+    this.$swiper.controller.control = this.mainSwiper
+    this.mainSwiper.controller.control = this.$swiper
   }
 }
 
@@ -122,8 +106,6 @@ export default class Home extends Vue {
   font-size 16px
   background #fff
 
-<<<<<<< HEAD
-=======
   .top-board
     height 700px
 
@@ -156,7 +138,54 @@ export default class Home extends Vue {
       border-left 4px solid transparent
       list-style none
 
->>>>>>> update: swiper
+  .swipers
+    overflow hidden
+    margin-top -94px
+    height 100%
+
+    .item
+      display block
+      overflow hidden
+      width 100%
+      height 100%
+
+      .title
+      .desc
+        margin-bottom 40px
+        font-size 40px
+        text-align center
+        color #fff
+
+      &[data-size='big']
+        img
+          margin-top -140px
+          width 780px
+          max-width none
+          max-height none
+
+      &[data-type='full']
+        img
+          margin-top 166px
+          width 730px
+          max-width none
+          max-height none
+
+      .title
+        margin-top 140px
+
+      .desc
+        font-size 26px
+
+    .image-container
+      margin auto
+      width 800px
+      height 500px
+
+      img
+        width 100%
+        height 100%
+        object-fit contain
+
   .main
     margin auto
     padding 130px 0 40px
