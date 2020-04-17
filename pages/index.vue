@@ -113,6 +113,16 @@ export default class Home extends Vue {
       return r.position && r.position.type === 'center-ads' && r.position.position === 'left'
     })[0]
   }
+  get centerRightTop() {
+    return this.list.filter(r => {
+      return r.position && r.position.type === 'center-ads' && r.position.position === 'right-top'
+    })[0]
+  }
+  get centerRightBottom() {
+    return this.list.filter(r => {
+      return r.position && r.position.type === 'center-ads' && r.position.position === 'right-bottom'
+    })[0]
+  }
 
   private async mounted() {
     this.$swiper.controller.control = this.mainSwiper
