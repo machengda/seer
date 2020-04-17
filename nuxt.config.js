@@ -38,6 +38,7 @@ export default {
    */
   plugins: [
     '@/plugins/axios',
+    { src: '@/plugins/filters.js', ssr: false },
     { src: '@/plugins/nuxt-swiper-plugin', ssr: false },
   ],
   /*

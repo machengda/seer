@@ -25,8 +25,12 @@
               img.product(:src="$baseUrl + b.img.url")
     
   .main
-    a.img1(href="/seer/why.html")
-      img(:src="require('@/assets/home/img/img-main.png')")
+    a.img1(href="/seer/why.html" v-if="centerTop")
+      .info
+        .title {{centerTop.title}}
+        .sub-title(v-html="$options.filters.br(centerTop.sub_title)")
+      img(:src="$baseUrl + centerTop.img.url")
+
     .center
       a.left(href="/seer/src.html")
         img(:src="require('@/assets/home/img/img-left.png')")
@@ -42,25 +46,34 @@
 </template>
 
 <script lang="ts">
+import { SwiperOptions } from 'swiper'
 import { Vue, Component, Prop } from 'vue-property-decorator'
 Component.registerHooks(['asyncData']);
 
+interface Position {
+  type: string
+}
+
+interface Img {
+  url: string
+}
+
 interface Resource {
-  name: '',
-  title: '',
-  link: '',
-  img: ''
+  name: string,
+  title: string,
+  link: string,
+  img: Img,
+  position: Position
 }
 
 @Component
 export default class Home extends Vue {
   private list: Resource[] = []
   private _this = this
-  private navSwiperOption: any = {
+  private navSwiperOption: SwiperOptions = {
     initialSlide: 0,
     direction: 'vertical',
     mousewheel: true,
-    mousewheels: true,
     allowTouchMove: false,
     slideToClickedSlide: true,
     slidesPerView: 5,
@@ -68,11 +81,10 @@ export default class Home extends Vue {
     spaceBetween: 20
   }
 
-  private mainOption: any = {
+  private mainOption: SwiperOptions = {
     initialSlide: 0,
     direction: 'vertical',
-    mousewheel: true,
-    mousewheels: true,
+    mousewheel: false,
     allowTouchMove: true,
     spaceBetween: 0
   }
@@ -83,7 +95,15 @@ export default class Home extends Vue {
   }
 
   get banners() {
-    return this.list
+    return this.list.filter(r => {
+      return !r.position
+    })
+  }
+
+  get centerTop() {
+    return this.list.filter(r => {
+      return r.position && r.position.type === 'center-top'
+    })[0]
   }
 
   private async mounted() {
@@ -227,10 +247,31 @@ export default class Home extends Vue {
       transition all .3s
 
     .img1
-      display block
+      position relative
+      display flex
+      justify-content flex-start
+      align-items center
       margin-bottom 42px
 
+      height 416px
+
+      .info
+        position relative
+        z-index 10
+        margin-left 66px
+        color #fff
+
+        .title
+          margin-bottom 20px
+          font-size 38px
+
+        .sub-title
+          line-height 1.6
+          font-size 20px
+          color #999
+
       img
+        abs-left 0
         vertical-align top
         width 100%
         height 100%
