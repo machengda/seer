@@ -3,6 +3,8 @@ import { AxiosStatic } from 'axios';
 
 declare module 'vue/types/vue' {
   interface Vue {
-    $api: AxiosStatic
+    $api: AxiosStatic,
+    $swiper: any,
+    mainSwiper: any
   }
 }

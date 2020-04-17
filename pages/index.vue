@@ -2,7 +2,8 @@
 .container
 
   .top-board
-    .swiper.navs(v-swiper="navSwiperOption")
+    .swiper.navs(
+      v-swiper="navSwiperOption")
       .swiper-wrapper
         .swiper-slide(
           v-for="b, index in banners"
@@ -76,12 +77,8 @@ export default class Home extends Vue {
     spaceBetween: 0
   }
 
-  async asyncData ({ app }: {
-    app: any
-  }) {
+  async asyncData ({ app }: { app: any }) {
     let list = await app.$api.get('resources?page.id=1')
-    list = list.concat(list)
-    list = list.concat(list)
     return { list }
   }
 
@@ -90,9 +87,6 @@ export default class Home extends Vue {
   }
 
   private async mounted() {
-    const list = await this.$api.get('resources?page.id=1')
-    console.log('list:', list)
-
     this.$swiper.controller.control = this.mainSwiper
     this.mainSwiper.controller.control = this.$swiper
   }
