@@ -32,8 +32,11 @@
       img(:src="$baseUrl + centerTop.img.url")
 
     .center
-      a.left(href="/seer/src.html")
-        img(:src="require('@/assets/home/img/img-left.png')")
+      a.left(href="/seer/src.html" v-if="centerLeft")
+        .info
+          .title {{centerLeft.title}}
+          .sub-title(v-html="$options.filters.br(centerLeft.sub_title)")
+        img(:src="$baseUrl + centerLeft.img.url")
       .right
         a.core(href="/seer/amb.html")
           img(:src="require('@/assets/home/img/core.png')")
@@ -51,7 +54,8 @@ import { Vue, Component, Prop } from 'vue-property-decorator'
 Component.registerHooks(['asyncData']);
 
 interface Position {
-  type: string
+  type: string,
+  position: string
 }
 
 interface Img {
@@ -99,10 +103,14 @@ export default class Home extends Vue {
       return !r.position
     })
   }
-
   get centerTop() {
     return this.list.filter(r => {
       return r.position && r.position.type === 'center-top'
+    })[0]
+  }
+  get centerLeft() {
+    return this.list.filter(r => {
+      return r.position && r.position.type === 'center-ads' && r.position.position === 'left'
     })[0]
   }
 
@@ -247,6 +255,7 @@ export default class Home extends Vue {
       transition all .3s
 
     .img1
+    .left
       overflow hidden
       position relative
       display flex
@@ -263,7 +272,7 @@ export default class Home extends Vue {
         color #fff
 
         .title
-          margin-bottom 20px
+          margin-bottom 10px
           font-size 38px
 
         .sub-title
@@ -276,6 +285,14 @@ export default class Home extends Vue {
         vertical-align top
         width 100%
         height 100%
+
+    .left
+      overflow hidden
+      align-items flex-start
+      height 713px
+
+      .info
+        margin-top 70px
 
     .college
       display block
