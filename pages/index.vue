@@ -247,6 +247,7 @@ export default class Home extends Vue {
       transition all .3s
 
     .img1
+      overflow hidden
       position relative
       display flex
       justify-content flex-start
