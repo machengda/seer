@@ -47,5 +47,13 @@
       "commit-msg": "commitlint -E GIT_PARAMS",
       "pre-commit": "npm run lint"
     }
+  },
+  "commitlint": {
+    "husky": {
+      "hooks": {
+        "pre-commit": "npm run tslint",
+        "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+      }
+    }
   }
 }
