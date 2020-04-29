@@ -42,6 +42,12 @@
     "stylus": "^0.54.7",
     "stylus-loader": "^3.0.2"
   },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E GIT_PARAMS",
+      "pre-commit": "npm run lint"
+    }
+  },
   "gitHooks": {
     "commit-msg": "commitlint -E GIT_PARAMS",
     "pre-commit": "npm run lint"
