@@ -6,6 +6,10 @@ export default function ({ $axios, redirect }, inject) {
   api.setBaseURL('http://www.machengda.online:1337/')
 
   api.onResponse((response) => {
+<<<<<<< HEAD
+=======
+    console.log('response:', response)
+>>>>>>> s
     return response.data
   })
 
