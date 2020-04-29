@@ -41,6 +41,6 @@
   },
   "gitHooks": {
     "commit-msg": "commitlint -E GIT_PARAMS",
-    "pre-commit": "lint-staged"
+    "pre-commit": "npm run lint"
   }
 }
