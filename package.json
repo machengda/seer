@@ -25,6 +25,11 @@
     "@nuxtjs/eslint-config-typescript": "^1.0.0",
     "@nuxtjs/eslint-module": "^1.0.0",
     "@nuxtjs/style-resources": "^1.0.0",
+<<<<<<< HEAD
+=======
+    "@types/node": "^13.11.1",
+    "babel-eslint": "^10.0.1",
+>>>>>>> s
     "eslint": "^6.1.0",
     "eslint-plugin-nuxt": ">=0.4.2",
     "eslint-plugin-prettier": "^3.1.2",
@@ -33,5 +38,8 @@
     "pug-plain-loader": "^1.0.0",
     "stylus": "^0.54.7",
     "stylus-loader": "^3.0.2"
+  },
+  "gitHooks": {
+    "commit-msg": "commitlint -E GIT_PARAMS"
   }
 }
