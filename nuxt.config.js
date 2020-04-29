@@ -23,6 +23,15 @@ export default {
   /*
    ** Global CSS
    */
+<<<<<<< HEAD
+=======
+  styleResources: {
+    stylus: [
+      '~/common/css/mixins.styl',
+      '~/common/css/common.styl'
+    ]
+  },
+>>>>>>> s
   css: [
     'swiper/css/swiper.css'
   ],
