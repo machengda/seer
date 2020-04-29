@@ -10,6 +10,7 @@
           :key="index")
           .nav {{b.name}}
 
+<<<<<<< HEAD
     .swipers.swiper(v-swiper:mainSwiper="mainOption")
       .swiper-wrapper
         .swiper-slide(
@@ -23,6 +24,20 @@
             .desc {{b.desc}}
             .image-container
               img.product(:src="$baseUrl + b.img.url")
+=======
+    // swiper.swipers(ref="mySwiper" :options="mainOption")
+    //   swiper-slide(
+    //     v-for="b, index in banners"
+    //     :key="index")
+    //     a.item(
+    //       :href="b.link"
+    //       :data-size="b.size"
+    //       :data-type="b.type")
+    //       .title {{b.title}}
+    //       .desc {{b.desc}}
+    //       .image-container
+    //         img.product(:src="b.img")
+>>>>>>> Keep calm and commit
     
   .main
     a.img1(href="/seer/why.html" v-if="centerTop")
