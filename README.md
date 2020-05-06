@@ -1,6 +1,6 @@
 # seer2
 
-> My terrific Nuxt.js project
+> My terrific Nuxt.js project 
 
 ## Build Setup
 
